@@ -132,15 +132,14 @@ while True:
         ball.goto(0, 0)
         ball.dx = 0.5
 
-    # collision with the paddle 1
-    if ball.xcor() < - 499 and paddle_1.ycor() + 50 > ball.ycor() > paddle_1.ycor() - 50:
+    # colisão com jogador 1
+    if ball.xcor() < - 497 and paddle_1.ycor() + 70 > ball.ycor() > paddle_1.ycor() - 70:
         ball.dx *= -1.25
 
         os.system("bounce.wav&")
 
-    # collision with the paddle 2
-    if ball.xcor() > 499 and paddle_2.ycor() + 50 > ball.ycor() > paddle_2.ycor() - 50:
+    # colisão com jogador 2
+    if ball.xcor() > 497 and paddle_2.ycor() + 70 > ball.ycor() > paddle_2.ycor() - 70:
         ball.dx *= -1.25
         os.system("bounce.wav&")
-
 
