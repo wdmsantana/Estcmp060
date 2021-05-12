@@ -1,5 +1,5 @@
-import turtle
-import os
+import turtle   # Início com a importação da biblioteca turtle
+import os       # Complemento com a Os, para simplificar o processo de programação e remover a necessidade de reescrever o Os em si
 #teste21
 # draw screen
 screen = turtle.Screen()
