@@ -33,8 +33,8 @@ ball.shape("square")
 ball.color("white")
 ball.penup()
 ball.goto(0, 0)
-ball.dx = 0.50
-ball.dy = 0.50
+ball.dx = 0.25
+ball.dy = 0.25
 
 # score
 score_1 = 0
@@ -47,43 +47,43 @@ hud.shape("square")
 hud.color("white")
 hud.penup()
 hud.hideturtle()
-hud.goto(0, 260)
+hud.goto(0, 290)
 hud.write("0 : 0", align="center", font=("Press Start 2P", 24, "normal"))
 
 
 def paddle_1_up():
     y = paddle_1.ycor()
-    if y < 250:
+    if y < 300:
         y += 30
     else:
-        y = 250
+        y = 300
     paddle_1.sety(y)
 
 
 def paddle_1_down():
     y = paddle_1.ycor()
-    if y > -250:
+    if y > -300:
         y += -30
     else:
-        y = -250
+        y = -300
     paddle_1.sety(y)
 
 
 def paddle_2_up():
     y = paddle_2.ycor()
-    if y < 250:
+    if y < 300:
         y += 30
     else:
-        y = 250
+        y = 300
     paddle_2.sety(y)
 
 
 def paddle_2_down():
     y = paddle_2.ycor()
-    if y > -250:
+    if y > -300:
         y += -30
     else:
-        y = -250
+        y = -300
     paddle_2.sety(y)
 
 
