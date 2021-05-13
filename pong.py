@@ -1,7 +1,7 @@
 import turtle   # Import from the turtle library
 import os       # To simplify the programming process and remove the need to rewrite the Os
 import winsound
-
+import time
 # Draw screen
 screen = turtle.Screen()
 screen.title("My Pong")
@@ -101,6 +101,7 @@ screen.onkeypress(paddle_2_down, "Down")
 
 while True:
     screen.update()
+    time.sleep(1/100)    #Resolves the bug of moving the rackets
 
     # Ball movement
     ball.setx(ball.xcor() + ball.dx)
