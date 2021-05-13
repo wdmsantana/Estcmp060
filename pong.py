@@ -33,8 +33,8 @@ ball.shape("square")
 ball.color("white")
 ball.penup()
 ball.goto(0, 0)
-ball.dx = 0.50
-ball.dy = 0.50
+ball.dx = 0.25
+ball.dy = 0.25
 
 # Score
 score_1 = 0
@@ -50,6 +50,7 @@ hud.hideturtle()
 hud.goto(0, 290)
 hud.write("0 : 0", align="center", font=("Press Start 2P", 24, "normal"))
 
+
 # Paddle 1 movement up
 def paddle_1_up():
     y = paddle_1.ycor()
@@ -58,6 +59,7 @@ def paddle_1_up():
     else:
         y = 300
     paddle_1.sety(y)
+
 
 # Paddle 1 movement down
 def paddle_1_down():
@@ -68,6 +70,7 @@ def paddle_1_down():
         y = -300
     paddle_1.sety(y)
 
+
 # Paddle 2 movement up
 def paddle_2_up():
     y = paddle_2.ycor()
@@ -76,6 +79,7 @@ def paddle_2_up():
     else:
         y = 300
     paddle_2.sety(y)
+
 
 # Paddle 2 movement down
 def paddle_2_down():
@@ -103,13 +107,13 @@ while True:
 
     # Collision with the upper wall
     if ball.ycor() > 350:
-        os.system("bounce.wav&")
+        #os.system("bounce.wav&")
         ball.sety(350)
         ball.dy *= -1
 
     # Collision with lower wall
     if ball.ycor() < -350:
-        os.system("bounce.wav&")
+        #os.system("bounce.wav&")
         ball.sety(-350)
         ball.dy *= -1
 
@@ -118,7 +122,7 @@ while True:
         score_2 += 1
         hud.clear()
         hud.write("{} : {}".format(score_1, score_2), align="center", font=("Press Start 2P", 24, "normal"))
-        os.system("258020__kodack__arcade-bleep-sound.wav&")
+        #os.system("258020__kodack__arcade-bleep-sound.wav&")
         ball.goto(0, 0)
         ball.dx = 0.5
 
@@ -127,16 +131,16 @@ while True:
         score_1 += 1
         hud.clear()
         hud.write("{} : {}".format(score_1, score_2), align="center", font=("Press Start 2P", 24, "normal"))
-        os.system("258020__kodack__arcade-bleep-sound.wav&")
+        #os.system("258020__kodack__arcade-bleep-sound.wav&")
         ball.goto(0, 0)
         ball.dx = 0.5
 
     # Collision with paddle 1
-    if ball.xcor() < - 497 and paddle_1.ycor() + 70 > ball.ycor() > paddle_1.ycor() - 70:
+    if ball.xcor() < - 480 and paddle_1.ycor() + 70 > ball.ycor() > paddle_1.ycor() - 70:
         ball.dx *= -1.25
-        os.system("bounce.wav&")
+        #os.system("bounce.wav&")
 
     # Collision with paddle 2
-    if ball.xcor() > 497 and paddle_2.ycor() + 70 > ball.ycor() > paddle_2.ycor() - 70:
+    if ball.xcor() > 480 and paddle_2.ycor() + 70 > ball.ycor() > paddle_2.ycor() - 70:
         ball.dx *= -1.25
-        os.system("bounce.wav&")
+        #os.system("bounce.wav&")
