@@ -1,14 +1,7 @@
-<<<<<<< HEAD
-import turtle   # Início com a importação da biblioteca turtle
-import os       # Complemento com a Os, para simplificar o processo de programação e remover a necessidade de reescrever o Os em si
-
-# Draw screen
-=======
 import turtle   # Import from the turtle library
 import os       # to simplify the programming process and remove the need to rewrite the Os
-#teste21
+
 # draw screen
->>>>>>> bb526b0c10c75d017ca94291b98b476c0caa4f09
 screen = turtle.Screen()
 screen.title("My Pong")
 screen.bgcolor("black")
