@@ -1,7 +1,7 @@
 import turtle   # Import from the turtle library
-import os       # to simplify the programming process and remove the need to rewrite the Os
+import os       # To simplify the programming process and remove the need to rewrite the Os
 
-# draw screen
+# Draw screen
 screen = turtle.Screen()
 screen.title("My Pong")
 screen.bgcolor("black")
@@ -132,13 +132,13 @@ while True:
         ball.goto(0, 0)
         ball.dx = 0.5
 
-    # colisão com jogador 1
+    # Collision with paddle 1
     if ball.xcor() < - 497 and paddle_1.ycor() + 70 > ball.ycor() > paddle_1.ycor() - 70:
         ball.dx *= -1.25
 
         os.system("bounce.wav&")
 
-    # colisão com jogador 2
+    # Collision with paddle 2
     if ball.xcor() > 497 and paddle_2.ycor() + 70 > ball.ycor() > paddle_2.ycor() - 70:
         ball.dx *= -1.25
         os.system("bounce.wav&")
