@@ -141,6 +141,7 @@ while True:
         ball.dx *= -1.25
         #os.system("bounce.wav&")
         winsound.PlaySound("bounce.wav", winsound.SND_ASYNC)
+        
     # Collision with paddle 2
     if ball.xcor() > 480 and paddle_2.ycor() + 70 > ball.ycor() > paddle_2.ycor() - 70:
         ball.dx *= -1.25
