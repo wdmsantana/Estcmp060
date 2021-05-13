@@ -98,7 +98,6 @@ while True:
     screen.update()
 
     # Ball movement
-
     ball.setx(ball.xcor() + ball.dx)
     ball.sety(ball.ycor() + ball.dy)
 
@@ -135,11 +134,9 @@ while True:
     # Collision with paddle 1
     if ball.xcor() < - 497 and paddle_1.ycor() + 70 > ball.ycor() > paddle_1.ycor() - 70:
         ball.dx *= -1.25
-
         os.system("bounce.wav&")
 
     # Collision with paddle 2
     if ball.xcor() > 497 and paddle_2.ycor() + 70 > ball.ycor() > paddle_2.ycor() - 70:
         ball.dx *= -1.25
         os.system("bounce.wav&")
-
