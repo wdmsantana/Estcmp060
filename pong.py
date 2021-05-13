@@ -1,14 +1,14 @@
 import turtle   # Início com a importação da biblioteca turtle
 import os       # Complemento com a Os, para simplificar o processo de programação e remover a necessidade de reescrever o Os em si
-#teste21
-# draw screen
+
+# Draw screen
 screen = turtle.Screen()
 screen.title("My Pong")
 screen.bgcolor("black")
 screen.setup(width=1150, height=720)
 screen.tracer(0)
 
-# draw paddle 1
+# Draw paddle 1
 paddle_1 = turtle.Turtle()
 paddle_1.speed(0)
 paddle_1.shape("square")
@@ -17,7 +17,7 @@ paddle_1.shapesize(stretch_wid=5, stretch_len=1)
 paddle_1.penup()
 paddle_1.goto(-500, 0)
 
-# draw paddle 2
+# Draw paddle 2
 paddle_2 = turtle.Turtle()
 paddle_2.speed(0)
 paddle_2.shape("square")
@@ -26,7 +26,7 @@ paddle_2.shapesize(stretch_wid=5, stretch_len=1)
 paddle_2.penup()
 paddle_2.goto(500, 0)
 
-# draw ball
+# Draw ball
 ball = turtle.Turtle()
 ball.speed(0)
 ball.shape("square")
@@ -36,11 +36,11 @@ ball.goto(0, 0)
 ball.dx = 0.50
 ball.dy = 0.50
 
-# score
+# Score
 score_1 = 0
 score_2 = 0
 
-# head-up display
+# Head-up display
 hud = turtle.Turtle()
 hud.speed(0)
 hud.shape("square")
@@ -50,7 +50,7 @@ hud.hideturtle()
 hud.goto(0, 290)
 hud.write("0 : 0", align="center", font=("Press Start 2P", 24, "normal"))
 
-
+# Paddle 1 movement up
 def paddle_1_up():
     y = paddle_1.ycor()
     if y < 300:
@@ -59,7 +59,7 @@ def paddle_1_up():
         y = 300
     paddle_1.sety(y)
 
-
+# Paddle 1 movement down
 def paddle_1_down():
     y = paddle_1.ycor()
     if y > -300:
@@ -68,7 +68,7 @@ def paddle_1_down():
         y = -300
     paddle_1.sety(y)
 
-
+# Paddle 2 movement up
 def paddle_2_up():
     y = paddle_2.ycor()
     if y < 300:
@@ -77,7 +77,7 @@ def paddle_2_up():
         y = 300
     paddle_2.sety(y)
 
-
+# Paddle 2 movement down
 def paddle_2_down():
     y = paddle_2.ycor()
     if y > -300:
@@ -87,7 +87,7 @@ def paddle_2_down():
     paddle_2.sety(y)
 
 
-# keyboard
+# Keyboard
 screen.listen()
 screen.onkeypress(paddle_1_up, "w")
 screen.onkeypress(paddle_1_down, "s")
@@ -97,24 +97,24 @@ screen.onkeypress(paddle_2_down, "Down")
 while True:
     screen.update()
 
-    # ball movement
+    # Ball movement
 
     ball.setx(ball.xcor() + ball.dx)
     ball.sety(ball.ycor() + ball.dy)
 
-    # collision with the upper wall
+    # Collision with the upper wall
     if ball.ycor() > 350:
         os.system("bounce.wav&")
         ball.sety(350)
         ball.dy *= -1
 
-    # collision with lower wall
+    # Collision with lower wall
     if ball.ycor() < -350:
         os.system("bounce.wav&")
         ball.sety(-350)
         ball.dy *= -1
 
-    # collision with left wall
+    # Collision with left wall
     if ball.xcor() < -500:
         score_2 += 1
         hud.clear()
@@ -123,7 +123,7 @@ while True:
         ball.goto(0, 0)
         ball.dx = 0.5
 
-    # collision with right wall
+    # Collision with right wall
     if ball.xcor() > 500:
         score_1 += 1
         hud.clear()
