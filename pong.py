@@ -1,7 +1,8 @@
 import turtle   # Import from the turtle library
-import os       # To simplify the programming process and remove the need to rewrite the Os
 import winsound
 import time
+
+
 # Draw screen
 screen = turtle.Screen()
 screen.title("My Pong")
@@ -34,8 +35,8 @@ ball.shape("square")
 ball.color("white")
 ball.penup()
 ball.goto(0, 0)
-ball.dx = 0.25
-ball.dy = 0.25
+ball.dx = 3
+ball.dy = 3
 
 # Score
 score_1 = 0
@@ -140,11 +141,9 @@ while True:
     # Collision with paddle 1
     if ball.xcor() < - 480 and paddle_1.ycor() + 70 > ball.ycor() > paddle_1.ycor() - 70:
         ball.dx *= -1.25
-        #os.system("bounce.wav&")
         winsound.PlaySound("bounce.wav", winsound.SND_ASYNC)
         
     # Collision with paddle 2
     if ball.xcor() > 480 and paddle_2.ycor() + 70 > ball.ycor() > paddle_2.ycor() - 70:
         ball.dx *= -1.25
-        #os.system("bounce.wav&")
         winsound.PlaySound("bounce.wav", winsound.SND_ASYNC)
