@@ -1,4 +1,4 @@
-import turtle   # Import from the turtle library
+import turtle
 import winsound
 import time
 import random
@@ -54,43 +54,58 @@ hud.write("0 : 0", align="center", font=("Press Start 2P", 24, "normal"))
 
 
 # Paddle 1 movement up
-def paddle_1_up():
-    y = paddle_1.ycor()
+def paddle_up(test):
+    y = test.ycor()
     if y < 300:
         y += 50
     else:
         y = 300
-    paddle_1.sety(y)
+    test.sety(y)
+
+
+def paddle_down(test2):
+    y = test2.ycor()
+    if y > -300:
+        y += -50
+    else:
+        y = -300
+    test2.sety(y)
+
+
+def paddle_1_up():
+    paddle_up(paddle_1)
 
 
 # Paddle 1 movement down
 def paddle_1_down():
-    y = paddle_1.ycor()
-    if y > -300:
-        y += -50
-    else:
-        y = -300
-    paddle_1.sety(y)
+    paddle_down(paddle_1)
 
 
 # Paddle 2 movement up
 def paddle_2_up():
-    y = paddle_2.ycor()
-    if y < 300:
-        y += 50
-    else:
-        y = 300
-    paddle_2.sety(y)
+    paddle_up(paddle_2)
 
 
 # Paddle 2 movement down
 def paddle_2_down():
-    y = paddle_2.ycor()
-    if y > -300:
-        y += -50
+    paddle_down(paddle_2)
+
+
+def score(score_test):
+    global score_1
+    global score_2
+    if score_test:
+        score_2 += 1
     else:
-        y = -300
-    paddle_2.sety(y)
+        score_1 += 1
+    hud.clear()
+    hud.write("{} : {}".format(score_1, score_2), align="center", font=("Press Start 2P", 24, "normal"))
+    winsound.PlaySound("point.wav", winsound.SND_ASYNC)
+    ball.goto(0, 0)
+    if random.randint(0, 1) == 1:
+        ball.dx = 3
+    else:
+        ball.dx = -3
 
 
 # Keyboard
@@ -122,27 +137,11 @@ while True:
 
     # Collision with left wall
     if ball.xcor() < -500:
-        score_2 += 1
-        hud.clear()
-        hud.write("{} : {}".format(score_1, score_2), align="center", font=("Press Start 2P", 24, "normal"))
-        winsound.PlaySound("point.wav", winsound.SND_ASYNC)
-        ball.goto(0, 0)
-        if random.randint(0, 1) == 1:
-            ball.dx = 3
-        else:
-            ball.dx = -3
+        score(True)
 
     # Collision with right wall
     if ball.xcor() > 500:
-        score_1 += 1
-        hud.clear()
-        hud.write("{} : {}".format(score_1, score_2), align="center", font=("Press Start 2P", 24, "normal"))
-        winsound.PlaySound("point.wav", winsound.SND_ASYNC)
-        ball.goto(0, 0)
-        if random.randint(0, 1) == 1:
-            ball.dx = 3
-        else:
-            ball.dx = -3
+        score(False)
 
     # Collision with paddle 1
     if ball.xcor() < - 480 and paddle_1.ycor() + 70 > ball.ycor() > paddle_1.ycor() - 70:
