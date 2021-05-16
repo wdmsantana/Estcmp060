@@ -53,7 +53,7 @@ hud.goto(0, 290)
 hud.write("0 : 0", align="center", font=("Press Start 2P", 24, "normal"))
 
 
-# Paddle 1 movement up
+# Paddle movement up
 def paddle_up(test):
     y = test.ycor()
     if y < 300:
@@ -62,7 +62,7 @@ def paddle_up(test):
         y = 300
     test.sety(y)
 
-
+# Paddle movement down
 def paddle_down(test2):
     y = test2.ycor()
     if y > -300:
@@ -72,6 +72,7 @@ def paddle_down(test2):
     test2.sety(y)
 
 
+#Paddle 1 movement up
 def paddle_1_up():
     paddle_up(paddle_1)
 
@@ -90,7 +91,7 @@ def paddle_2_up():
 def paddle_2_down():
     paddle_down(paddle_2)
 
-
+# Pointing
 def score(score_test):
     global score_1
     global score_2
