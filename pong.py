@@ -1,11 +1,11 @@
 import turtle   # Import from the turtle library
 import winsound
 import time
-
+import random
 
 # Draw screen
 screen = turtle.Screen()
-screen.title("My Pong")
+screen.title("Wa pong")
 screen.bgcolor("black")
 screen.setup(width=1150, height=720)
 screen.tracer(0)
@@ -102,7 +102,7 @@ screen.onkeypress(paddle_2_down, "Down")
 
 while True:
     screen.update()
-    time.sleep(1/100)    #Resolves the bug of moving the rackets
+    time.sleep(1/100)    # Resolves the bug of moving the rackets
 
     # Ball movement
     ball.setx(ball.xcor() + ball.dx)
@@ -125,18 +125,24 @@ while True:
         score_2 += 1
         hud.clear()
         hud.write("{} : {}".format(score_1, score_2), align="center", font=("Press Start 2P", 24, "normal"))
-        winsound.PlaySound("258020__kodack__arcade-bleep-sound.wav", winsound.SND_ASYNC)
+        winsound.PlaySound("point.wav", winsound.SND_ASYNC)
         ball.goto(0, 0)
-        ball.dx = 0.5
+        if random.randint(0, 1) == 1:
+            ball.dx = 3
+        else:
+            ball.dx = -3
 
     # Collision with right wall
     if ball.xcor() > 500:
         score_1 += 1
         hud.clear()
         hud.write("{} : {}".format(score_1, score_2), align="center", font=("Press Start 2P", 24, "normal"))
-        winsound.PlaySound("258020__kodack__arcade-bleep-sound.wav", winsound.SND_ASYNC)
+        winsound.PlaySound("point.wav", winsound.SND_ASYNC)
         ball.goto(0, 0)
-        ball.dx = 0.5
+        if random.randint(0, 1) == 1:
+            ball.dx = 3
+        else:
+            ball.dx = -3
 
     # Collision with paddle 1
     if ball.xcor() < - 480 and paddle_1.ycor() + 70 > ball.ycor() > paddle_1.ycor() - 70:
