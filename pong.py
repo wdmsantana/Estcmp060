@@ -62,6 +62,7 @@ def paddle_up(test):
         y = 300
     test.sety(y)
 
+
 # Paddle movement down
 def paddle_down(test2):
     y = test2.ycor()
@@ -72,7 +73,7 @@ def paddle_down(test2):
     test2.sety(y)
 
 
-#Paddle 1 movement up
+# Paddle 1 movement up
 def paddle_1_up():
     paddle_up(paddle_1)
 
@@ -90,6 +91,7 @@ def paddle_2_up():
 # Paddle 2 movement down
 def paddle_2_down():
     paddle_down(paddle_2)
+
 
 # Pointing
 def score(score_test):
